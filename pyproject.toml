@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "survey-wisdom-core"
+version = "0.1.0"
+description = "Micro-Macro-Micro survey framework with scoring, association, and pattern accumulation"
+requires-python = ">=3.10"
+dependencies = [
+    "pydantic>=2.9.0",
+    "pyyaml>=6.0",
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["schemes*", "evaluators*", "associations*", "patterns*"]

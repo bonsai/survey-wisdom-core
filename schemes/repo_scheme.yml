@@ -1,0 +1,47 @@
+dimensions:
+  - key: purpose
+    label: 解決したい課題
+    types: [Fact, Assessment]
+    required: true
+
+  - key: scope
+    label: 範囲・境界
+    types: [Fact]
+
+  - key: integration_surface
+    label: 統合インターフェース
+    types: [Fact, Hypothesis]
+
+  - key: license_safety
+    label: ライセンス互換性
+    types: [Fact]
+
+  - key: maturity
+    label: 成熟度
+    types: [Assessment]
+    signals: [releases, tests, docs, issues_response]
+
+  - key: activity
+    label: 維持活動
+    types: [Fact]
+    signals: [last_commit, last_release, contributor_count]
+
+decision_matrix:
+  reuse:
+    conditions: [reach>=4, maturity>=0.6, risk<=0.3]
+  integrate:
+    conditions: [reach>=3, integration_surface exists, license_safe]
+  fork:
+    conditions: [reach>=4, risk>0.5, license_permits]
+  build:
+    conditions: [reach<2, no_direct_alternative]
+  validate:
+    conditions: [confidence<0.5, high_potential]
+  stop:
+    conditions: [reach<2, risk>0.8, inactive]
+
+evaluation_gate:
+  min_repos: 3
+  min_confidence: 0.5
+  max_risk: 0.7
+  top_k: 20

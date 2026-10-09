@@ -1,0 +1,72 @@
+# サーベイ対象の 3層構造化フレームワーク
+# Micro → Macro → Micro の循環: 個別収集 → 構造発見 → 精緻再検証
+
+layers:
+
+  # === LAYER 1: MICRO-1 (個別要素収集) ===
+  micro_1_element:
+    label: "個別アイテムの原子的事実"
+    description: "サーベイ対象1件あたりの抽出可能な属性"
+    evidence_level: Fact
+    granularity: "アイテム単位"
+    
+    for_paper:
+      fields: [title, authors, year, venue, abstract, keywords]
+      extracted_sections: [introduction, method, experiment, related_work, conclusion]
+      atomic_claims: "主張→エビデンスの対に分解"
+      
+    for_repo:
+      fields: [full_name, description, language, license, stars, forks, created_at, updated_at]
+      extracted_surfaces: [README, API_docs, tests, issues, releases, dependencies]
+      atomic_capabilities: "謳い文句→実装確認の対に分解"
+
+  # === LAYER 2: MACRO (構造・パターン・空間) ===
+  macro_structure:
+    label: "全体マップと構造発見"
+    description: "複数アイテムの配置から見える地形"
+    evidence_level: Assessment
+    granularity: "集合・領域・関係性"
+    
+    universal_dimensions:
+      - adjacency_map: "近接関係（≒ cite/depend/fork）"
+      - coverage_holes: "未踏空間の特定"
+      - cluster_detection: "グループ化・カテゴライズ"
+      - timeline_evolution: "時間軸での変遷"
+      - quality_spectrum: "品質・完成度の分布"
+      
+    for_paper:
+      matrices:
+        - survey_matrix: "手法×評価軸のカバレッジ"
+        - citation_graph: "引用ネットワークの密度と橋渡し"
+        - gap_landscape: "未解決問題の空間配置"
+      
+    for_repo:
+      matrices:
+        - solution_space: "課題×解決アプローチのカバレッジ"
+        - dependency_graph: "技術スタックの依存関係"
+        - maturity_spectrum: "PoC → 本番適用可能 → ドメイン特化の分布"
+
+  # === LAYER 3: MICRO-2 (精緻再検証) ===
+  micro_2_verification:
+    label: "構造に基づく精緻な再検証"
+    description: "Macroで見えたパターンを元に、Micro-1を再訪・精緻化"
+    evidence_level: "Fact + Assessment"
+    granularity: "センテンス・関数・エビデンス断片"
+    
+    triggers:
+      - "Macroで異常値（孤立点・予期せぬ密度）が検出された"
+      - "Gapが特定されたが根拠が薄い"
+      - "2つのアイテムが『同じ』と判断されたが差分が不明"
+      - "競合関係と協調関係の区別が曖昧"
+      
+    for_paper:
+      operations:
+        - claim_verification: "主張を原文に照らして再確認"
+        - evidence_chain_audit: "結果→手法→前提の論理連鎖を追跡"
+        - contradiction_resolution: "相反する結果の実験条件の差分を特定"
+        
+    for_repo:
+      operations:
+        - api_surface_audit: "謳い文句と実際のAPIを照合"
+        - test_evidence_check: "テストが主張を裏付けているか"
+        - integration_dry_run: "依存関係の実際の解決可能性を検証"

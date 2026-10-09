@@ -1,0 +1,37 @@
+{
+  "workflow engine": {
+    "synonyms": ["orchestrator", "pipeline runner", "task scheduler"],
+    "hypernyms": ["automation framework", "process management system"],
+    "hyponyms": ["DAG engine", "state machine executor", "rule engine", "ETL orchestrator"],
+    "adjacents": ["CI/CD pipeline", "data pipeline", "business process management"],
+    "impl_terms": ["Airflow", "Prefect", "Luigi", "Celery", "Temporal"]
+  },
+  "paper survey": {
+    "synonyms": ["literature review", "systematic review", "state-of-the-art survey"],
+    "hypernyms": ["research synthesis", "knowledge mapping"],
+    "hyponyms": ["scoping review", "narrative review", "meta-analysis", "rapid review"],
+    "adjacents": ["bibliometrics", "citation analysis", "science mapping"],
+    "impl_terms": ["PRISMA", "SLR", "snowballing", "backward citation", "forward citation"]
+  },
+  "github survey": {
+    "synonyms": ["repo survey", "OSS landscape", "open-source survey"],
+    "hypernyms": ["technology assessment", "solution scouting"],
+    "hyponyms": ["build-vs-buy analysis", "dependency audit", "fork analysis"],
+    "adjacents": ["vendor evaluation", "market research", "competitive analysis"],
+    "impl_terms": ["GitHub API", "topic search", "stargazers", "dependents graph"]
+  },
+  "multi-agent": {
+    "synonyms": ["agent orchestration", "agentic system", "distributed agents"],
+    "hypernyms": ["autonomous system", "AI system architecture"],
+    "hyponyms": ["LLM multi-agent", "reinforcement learning multi-agent", "swarm intelligence"],
+    "adjacents": ["MCP", "LangGraph", "AutoGen", "CrewAI"],
+    "impl_terms": ["LangGraph", "CrewAI", "AutoGen", "MetaGPT", "CAMEL"]
+  },
+  "evaluation loop": {
+    "synonyms": ["feedback loop", "reflection mechanism", "self-correction loop"],
+    "hypernyms": ["quality assurance", "iterative improvement"],
+    "hyponyms": ["stage-gate", "aggregated scoring", "adversarial review", "HITL loop"],
+    "adjacents": ["RLHF", "constitutional AI", "debate method"],
+    "impl_terms": ["self-consistency", "chain-of-verification", "LLM-as-Judge", "critic agent"]
+  }
+}

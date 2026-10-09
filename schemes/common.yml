@@ -1,0 +1,25 @@
+evidence_types:
+  Fact:
+    definition: "一次ソースまたは機械的に検証可能な記述"
+    examples:
+      - "リリース日: 2024-03-15"
+      - "stars: 1,234"
+      - "ライセンス: MIT"
+      - "論文本文第3章引用"
+
+  Assessment:
+    definition: "複数のFactからの推論・専門家の判断"
+    examples:
+      - "成熟度は中程度"
+      - "この手法は画像分類に向いている"
+
+  Hypothesis:
+    definition: "検証が必要な推測・未確認の可能性"
+    examples:
+      - "これがボトルネックの可能性"
+      - "拡張すれば音声処理にも使えるかも"
+
+confidence_tree:
+  high:   "一次ソース2点以上、矛盾なし"
+  medium: "一次ソース1点、または間接的だが信頼できる出典"
+  low:    "推論のみ、または一次ソースとの矛盾あり"

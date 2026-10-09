@@ -1,0 +1,39 @@
+dimensions:
+  - key: research_object
+    label: 研究対象
+    types: [Fact, Assessment]
+    required: true
+
+  - key: methodology
+    label: 手法・技術
+    types: [Fact]
+    required: true
+
+  - key: dataset
+    label: 実験対象データ
+    types: [Fact, Hypothesis]
+
+  - key: metric
+    label: 評価指標
+    types: [Fact]
+
+  - key: limitation
+    label: 明言された限界
+    types: [Fact]
+
+  - key: gap_type
+    label: ギャップの型
+    types: [Assessment]
+    enum: [missing, conflict, underexplored, methodological]
+
+gap_decision_tree:
+  missing: "主要な評価軸がカバーされていない"
+  conflict: "2件以上の論文で主張が相反"
+  underexplored: "当該手法が大規模/複雑データで未検証"
+  methodological: "評価指標・実験設計に問題あり"
+
+evaluation_gate:
+  min_papers: 5
+  min_relevance: 0.4
+  top_k: 15
+  stale_year: 2010
